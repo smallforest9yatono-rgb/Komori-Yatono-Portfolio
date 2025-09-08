@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Komori Yatono Portfolio</title>
-<meta name="description" content="小森やと乃のポートフォリオサイトです。本サイトは、Web制作を行うフリーランスチーム Toiro Works の一部として運営されています。">
+<meta name="description" content="小森やと乃のポートフォリオサイトです。">
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="hamburger.css">
 </head>
 <body>
 
@@ -26,33 +27,27 @@
 <header class="c-header">
   <div class="header-logo-menu">
     <div class="logo-area"><h1>Komori Yatono Portfolio</h1></div>
-
     <!-- ハンバーガー -->
-    <div class="hamburger-btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <button class="hamburger-btn">&#9776;</button>
   </div>
 </header>
 
 <!-- モーダル -->
 <div class="hamburger-modal">
-  <button class="hamburger-close">×</button>
+  <button class="hamburger-close">&times;</button>
   <nav>
-    <a href="#about" class="modal-link">About</a>
-    <a href="#works-illustration" class="modal-link">Works</a>
-    <a href="#works-web" class="modal-link">Web</a>
-    <a href="#works-doujin" class="modal-link">Doujin</a>
-    <a href="#SNS" class="modal-link">SNS</a>
-    <a href="#works-note" class="modal-link">note</a>
+    <a href="#about">About</a>
+    <a href="#works-illustration">Works</a>
+    <a href="#works-web">Web</a>
+    <a href="#works-doujin">Doujin</a>
+    <a href="#SNS">SNS</a>
+    <a href="#works-note">note</a>
   </nav>
 </div>
 
 <section id="hero"></section>
 
 <main>
-<!-- About -->
 <section id="about">
 <h2>About</h2>
 <div class="left-text">
@@ -62,40 +57,37 @@
 </div>
 </section>
 
-<!-- Works Illustration -->
 <section id="works-illustration">
 <h2>Works - for Toiro Works</h2>
 <div class="gallery">
-  <div class="gallery-item size-medium"><img src="ic012.png" alt="イラストカット01差分"><p>カット01</p></div>
-  <div class="gallery-item size-medium"><img src="ic02.png" alt="イラストカット02"><p>カット02</p></div>
-  <div class="gallery-item size-medium"><img src="ic03.png" alt="イラストカット03"><p>カット03</p></div>
-  <div class="gallery-item size-medium"><img src="01.png" alt="アイコン01"><p>アイコン01</p></div>
-  <div class="gallery-item size-medium"><img src="02.png" alt="アイコン02"><p>アイコン02</p></div>
-  <div class="gallery-item size-medium"><img src="03.png" alt="アイコン03"><p>アイコン03</p></div>
-  <div class="gallery-item size-medium"><img src="04.png" alt="アイコン04"><p>アイコン04</p></div>
-  <div class="gallery-item size-medium"><img src="05.png" alt="アイコン05"><p>アイコン05</p></div>
-  <div class="gallery-item size-large"><div class="img-wrapper"><img src="mv.png" alt="ToiroWorksメインビジュアル"></div><p>メインビジュアル</p></div>
-  <div class="gallery-item size-large"><div class="img-wrapper"><img src="ToiroWorks.png" alt="ToiroWorksロゴ"></div><p>ロゴ</p></div>
+    <div class="gallery-item size-medium"><img src="ic012.png" alt="イラストカット01差分"><p>カット01</p></div>
+    <div class="gallery-item size-medium"><img src="ic02.png" alt="イラストカット02"><p>カット02</p></div>
+    <div class="gallery-item size-medium"><img src="ic03.png" alt="イラストカット03"><p>カット03</p></div>
+    <div class="gallery-item size-medium"><img src="01.png" alt="アイコン01"><p>アイコン01</p></div>
+    <div class="gallery-item size-medium"><img src="02.png" alt="アイコン02"><p>アイコン02</p></div>
+    <div class="gallery-item size-medium"><img src="03.png" alt="アイコン03"><p>アイコン03</p></div>
+    <div class="gallery-item size-medium"><img src="04.png" alt="アイコン04"><p>アイコン04</p></div>
+    <div class="gallery-item size-medium"><img src="05.png" alt="アイコン05"><p>アイコン05</p></div>
+    <div class="gallery-item size-large"><div class="img-wrapper"><img src="mv.png" alt="ToiroWorksメインビジュアル"></div><p>メインビジュアル</p></div>
+    <div class="gallery-item size-large"><div class="img-wrapper"><img src="ToiroWorks.png" alt="ToiroWorksロゴ"></div><p>ロゴ</p></div>
 
-  <div class="gallery-group">
-      <div class="gallery-item size-medium"><div class="img-wrapper"><img src="s1.png" alt="クラファンスマホ壁紙1"></div><p>スマホ壁紙1</p></div>
-      <div class="gallery-item size-medium"><div class="img-wrapper"><img src="s2.png" alt="クラファンスマホ壁紙2"></div><p>スマホ壁紙2</p></div>
-  </div>
+    <div class="gallery-group">
+        <div class="gallery-item size-medium"><div class="img-wrapper"><img src="s1.png" alt="クラファンスマホ壁紙1"></div><p>スマホ壁紙1</p></div>
+        <div class="gallery-item size-medium"><div class="img-wrapper"><img src="s2.png" alt="クラファンスマホ壁紙2"></div><p>スマホ壁紙2</p></div>
+    </div>
 </div>
 </section>
 
-<!-- Works Web -->
 <section id="works-web">
 <h2>Works - Web</h2>
 <div class="gallery">
-  <div class="gallery-item size-medium">
-    <a href="https://CafeLumo.hp.peraichi.com/"><img src="CafeLumo.png" alt="CafeLumo"></a>
-    <p>架空のカフェ "Cafe Lumo"</p>
-  </div>
+    <div class="gallery-item size-medium">
+        <a href="https://CafeLumo.hp.peraichi.com/"><img src="CafeLumo.png" alt="CafeLumo"></a>
+        <p>架空のカフェ "Cafe Lumo"</p>
+    </div>
 </div>
 </section>
 
-<!-- SNS -->
 <section id="SNS">
 <h2>X(旧Twitter)</h2>
 <p>@Komori_Yatono</p>
@@ -111,37 +103,28 @@
 
 <!-- JS -->
 <script>
-window.addEventListener('scroll', function() {
-  const header = document.querySelector('.c-header');
-  if(window.scrollY > 50){
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-
-// ハンバーガー
-const hamburgerBtn = document.querySelector('.hamburger-btn');
-const modal = document.querySelector('.hamburger-modal');
-const closeBtn = document.querySelector('.hamburger-close');
-const modalLinks = document.querySelectorAll('.modal-link');
-
-hamburgerBtn.addEventListener('click', () => {
-  modal.classList.toggle('open');
-  hamburgerBtn.classList.toggle('open');
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.classList.remove('open');
-  hamburgerBtn.classList.remove('open');
-});
-
-modalLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    modal.classList.remove('open');
-    hamburgerBtn.classList.remove('open');
+  // ヘッダーのスクロール変化
+  window.addEventListener('scroll', function() {
+      const header = document.querySelector('.c-header');
+      if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+      } else {
+          header.classList.remove('scrolled');
+      }
   });
-});
+
+  // ハンバーガー開閉
+  const hamburgerBtn = document.querySelector('.hamburger-btn');
+  const hamburgerModal = document.querySelector('.hamburger-modal');
+  const hamburgerClose = document.querySelector('.hamburger-close');
+
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerModal.classList.add('open');
+  });
+
+  hamburgerClose.addEventListener('click', () => {
+    hamburgerModal.classList.remove('open');
+  });
 </script>
 
 </body>
