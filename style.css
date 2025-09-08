@@ -216,7 +216,7 @@ footer {
 /* ======= レスポンシブ ======= */
 @media (max-width: 750px) {
   .pc-menu { display: none; }
-  .logo-area { font-size: 1.2rem; }
+  .logo-area { font-size: 20px; }
   .hamburger { display: block; }
 
   .header-logo-menu { 
