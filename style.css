@@ -58,9 +58,10 @@ section {
 .header-logo-menu {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* タイトル右横にメニュー/ハンバーガー */
-  gap: 20px;
-  padding: 0px 20px;
+  flex-direction: row;
+  justify-content: space-between; /* タイトル右横にメニュー/ハンバーガー */
+  gap: 200px;
+  padding: 0px 40px;
 }
 
 /* ロゴ */
@@ -217,7 +218,10 @@ footer {
   .pc-menu { display: none; }
   .hamburger { display: block; }
 
-  .header-logo-menu { justify-content: space-between; }
+  .header-logo-menu { 
+    justify-content: flex-end; 
+    padding: 0px 20px;
+  }
 
   .gallery { flex-direction: column; align-items: center; }
   .gallery-item.size-medium { width: 90%; }
