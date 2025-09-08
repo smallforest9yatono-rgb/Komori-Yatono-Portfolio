@@ -58,8 +58,9 @@ section {
 .header-logo-menu {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* タイトル右横にメニュー/ハンバーガー */
+  justify-content: flex-end; /* タイトル右横にメニュー/ハンバーガー */
   gap: 20px;
+  padding: 0px 20px;
 }
 
 /* ロゴ */
