@@ -218,14 +218,14 @@ footer {
   .pc-menu { display: none; }
   .logo-area { 
     font-size: 20px; 
-    justify-content: flex-start;
+    justify-content: flex-start !important;
   }
   .hamburger { display: block; }
 
   .header-logo-menu { 
     justify-content: flex-end; 
     padding: 0px 20px;
-    gap: auto !important;
+    gap: 30px !important;
   }
 
   .gallery { flex-direction: column; align-items: center; }
