@@ -60,7 +60,7 @@ section {
   align-items: center;
   flex-direction: row;
   justify-content: center; /* タイトル右横にメニュー/ハンバーガー */
-  gap: 200px;
+  gap: 300px;
   padding: 0px 40px;
 }
 
