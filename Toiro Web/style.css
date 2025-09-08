@@ -1,0 +1,215 @@
+/* ======= 基本 ======= */
+body {
+  font-family: 'Noto Sans JP','M PLUS Rounded 1c','Helvetica','Gill Sans',sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fffaf0;
+  color: #333;
+}
+
+h1,h2 {
+  font-family: 'Gill Sans','M PLUS Rounded 1c',sans-serif;
+  font-weight: 700;
+  color: #a59aca;
+  margin: 0;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 60px;
+  padding: 30px;
+  background: #e7e7eb;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+#about .left-text {
+  display: inline-block;
+  text-align: justify;
+  max-width: 700px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ======= hero ======= */
+#hero {
+  width: 100vw;
+  height: 400px;
+  background-image: url("top_image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ======= ヘッダー ======= */
+.c-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px 40px;
+  background: #1e1f26;
+  z-index: 1000;
+}
+
+.header-logo-menu {
+  display: flex;
+  justify-content: space-between; /* 左右に配置 */
+  align-items: center;
+}
+
+/* PCメニュー */
+.pc-menu {
+  display: flex;
+  gap: 25px;
+}
+
+.pc-menu a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.pc-menu a:hover {
+  opacity: 0.6;
+}
+
+/* ハンバーガー */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* モーダル */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; right: 0;
+  width: 70%;
+  height: 100%;
+  background: #1e1f26;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+  z-index: 2000;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal .close {
+  align-self: flex-end;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ======= ボタン ======= */
+a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(to bottom,#5B3A70,#A890C0);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a.button:hover {
+  background: linear-gradient(to bottom,#47285C,#9476B0);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ======= フッター ======= */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #1e1f26;
+  color: white;
+}
+
+/* ======= ギャラリー ======= */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.gallery-item.size-medium { width: 250px; }
+.gallery-item.size-large { width: 380px; }
+
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.img-wrapper img, .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.gallery-item p {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.gallery-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+/* ======= レスポンシブ ======= */
+@media (max-width: 750px) {
+  .pc-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
