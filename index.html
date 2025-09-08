@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Komori Yatono Portfolio</title>
-<meta name="description" content="小森やと乃のポートフォリオサイトです。本サイトは、Web制作を行うフリーランスチーム Toiro Works の一部として運営されています。">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komori Yatono Portfolio</title>
+  <meta name="description" content="小森やと乃のポートフォリオサイトです。本サイトは、Web制作を行うフリーランスチーム Toiro Works の一部として運営されています。">
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- CSS -->
-<link rel="stylesheet" href="style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<meta name="google-site-verification" content="UnfWq-Zd2VPCM-1ngckIzqYPEdzWqGcr6c72r-b2N9o" />
 <body>
+  <header class="c-header">
+    <div class="header-logo-menu">
+      <h1 class="logo-area">Komori Yatono Portfolio</h1>
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Z7851R0JVS');
-</script>
+      <!-- PCメニュー -->
+      <nav class="pc-menu a">
+        <a href="#about">About</a>
+        <a href="#works-illustration">Works</a>
+        <a href="#works-web">Web</a>
+        <a href="#works-doujin">Doujin</a>
+        <a href="#SNS">SNS</a>
+        <a href="#works-note">note</a>
+      </nav>
 
-<header class="c-header">
-  <div class="header-logo-menu">
-    <div class="logo-area"><h1>Komori Yatono Portfolio</h1></div>
+      <!-- スマホ用ハンバーガー -->
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+  </header>
 
-    <!-- PC用メニュー -->
-    <nav class="c-header__list pc-menu">
+  <!-- スマホ用モーダル -->
+  <div class="modal" id="modal">
+    <button class="close" id="close">&times;</button>
+    <nav class="mobile-menu">
       <a href="#about">About</a>
       <a href="#works-illustration">Works</a>
       <a href="#works-web">Web</a>
@@ -37,103 +45,42 @@
       <a href="#SNS">SNS</a>
       <a href="#works-note">note</a>
     </nav>
-
-    <!-- スマホ用ハンバーガー -->
-    <div class="hamburger-menu">
-      <span class="burger-icon">&#9776;</span>
-    </div>
   </div>
-</header>
 
-<!-- スマホ用モーダルメニュー -->
-<div class="mobile-modal">
-  <a href="#about">About</a>
-  <a href="#works-illustration">Works</a>
-  <a href="#works-web">Web</a>
-  <a href="#works-doujin">Doujin</a>
-  <a href="#SNS">SNS</a>
-  <a href="#works-note">note</a>
-  <span class="close-modal">&times;</span>
-</div>
+  <main>
+    <!-- サンプル：About -->
+    <section id="about">
+      <h2>About</h2>
+      <p>小森やと乃のポートフォリオサイトです。イラストやデザインの作品を紹介しています。</p>
+    </section>
 
-<section id="hero"></section>
+    <!-- 作品群（省略せず入れたい場合は、前のギャラリーHTMLをこの中にコピペしてください） -->
+  </main>
 
-<main>
-<section id="about">
-<h2>About</h2>
-<div class="left-text">
-<p>小森やと乃のポートフォリオサイトです。イラストやデザインの作品を紹介しています。</p>
-<p>本サイトは、Web制作を行うフリーランスチーム "Toiro Works" の一部として運営されています。</p>
-<p><b>※無断転載及びAI学習等といった迷惑行為等を固く禁じます。</b></p>
-</div>
-</section>
+  <footer>
+    <p>&copy; 2025 Toiro Works</p>
+  </footer>
 
-<section id="works-illustration">
-<h2>Works - for Toiro Works</h2>
-<div class="gallery">
-    <div class="gallery-item size-medium"><img src="ic012.png" alt="イラストカット01差分"><p>カット01</p></div>
-    <div class="gallery-item size-medium"><img src="ic02.png" alt="イラストカット02"><p>カット02</p></div>
-    <div class="gallery-item size-medium"><img src="ic03.png" alt="イラストカット03"><p>カット03</p></div>
-    <div class="gallery-item size-medium"><img src="01.png" alt="アイコン01"><p>アイコン01</p></div>
-    <div class="gallery-item size-medium"><img src="02.png" alt="アイコン02"><p>アイコン02</p></div>
-    <div class="gallery-item size-medium"><img src="03.png" alt="アイコン03"><p>アイコン03</p></div>
-    <div class="gallery-item size-medium"><img src="04.png" alt="アイコン04"><p>アイコン04</p></div>
-    <div class="gallery-item size-medium"><img src="05.png" alt="アイコン05"><p>アイコン05</p></div>
-    <div class="gallery-item size-large"><div class="img-wrapper"><img src="mv.png" alt="ToiroWorksメインビジュアル"></div><p>メインビジュアル</p></div>
-    <div class="gallery-item size-large"><div class="img-wrapper"><img src="ToiroWorks.png" alt="ToiroWorksロゴ"></div><p>ロゴ</p></div>
+  <!-- JS -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const modal = document.getElementById("modal");
+    const closeBtn = document.getElementById("close");
 
-    <div class="gallery-group">
-        <div class="gallery-item size-medium"><div class="img-wrapper"><img src="s1.png" alt="クラファンスマホ壁紙1"></div><p>スマホ壁紙1</p></div>
-        <div class="gallery-item size-medium"><div class="img-wrapper"><img src="s2.png" alt="クラファンスマホ壁紙2"></div><p>スマホ壁紙2</p></div>
-    </div>
-</div>
-</section>
+    hamburger.addEventListener("click", () => {
+      modal.classList.add("open");
+    });
 
-<section id="works-web">
-<h2>Works - Web</h2>
-<div class="gallery">
-    <div class="gallery-item size-medium">
-        <a href="https://CafeLumo.hp.peraichi.com/"><img src="CafeLumo.png" alt="CafeLumo"></a>
-        <p>架空のカフェ "Cafe Lumo"</p>
-    </div>
-</div>
-</section>
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("open");
+    });
 
-<section id="SNS">
-<h2>X(旧Twitter)</h2>
-<p>@Komori_Yatono</p>
-<h2>所属チーム公式X</h2>
-<p>@10iro_works</p>
-<p><a href="https://x.com/10iro_works" class="button">お仕事依頼はこちらから</a></p>
-</section>
-</main>
-
-<footer>
-<p>&copy; 2025 Toiro Works</p>
-</footer>
-
-<script>
-const burger = document.querySelector('.burger-icon');
-const modal = document.querySelector('.mobile-modal');
-const closeModal = document.querySelector('.close-modal');
-
-burger.addEventListener('click', () => {
-  modal.style.display = 'flex';
-});
-
-closeModal.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.c-header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-</script>
-
+    // リンククリックで閉じる
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        modal.classList.remove("open");
+      });
+    });
+  </script>
 </body>
 </html>
