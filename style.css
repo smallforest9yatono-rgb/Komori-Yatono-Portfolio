@@ -225,7 +225,7 @@ footer {
   .header-logo-menu { 
     justify-content: flex-end; 
     padding: 0px 20px;
-    gap: 20px !important;
+    gap: auto !important;
   }
 
   .gallery { flex-direction: column; align-items: center; }
