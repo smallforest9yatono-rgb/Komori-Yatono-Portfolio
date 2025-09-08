@@ -210,14 +210,25 @@ footer {
   .pc-menu {
     display: none;
   }
+
+  .header-logo-menu {
+    flex-direction: row;       /* 横並び */
+    justify-content: space-between; /* 左にタイトル、右にハンバーガー */
+    align-items: center;
+    padding: 0 20px;           /* 両端余白 */
+  }
+
+  .logo-area {
+    margin: 0;                 /* タイトルの余白リセット */
+  }
+
   .hamburger {
     display: block;
-    margin-right: 10px;
-    align-self: flex-end; /* 右寄せ */
+    margin: 0;                 /* タイトルとくっつかないように空白はjustify-contentで */
   }
+}
 
   .gallery-item, .gallery-item.size-medium, .gallery-item.size-large {
     width: 80%;
   }
   .img-wrapper { height: 180px; }
-}
