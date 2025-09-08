@@ -59,8 +59,8 @@ section {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between; /* タイトル右横にメニュー/ハンバーガー */
-  gap: 200px;
+  justify-content: center; /* タイトル右横にメニュー/ハンバーガー */
+  gap: 100px;
   padding: 0px 40px;
 }
 
