@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komori Yatono Portfolio</title>
+<meta name="description" content="小森やと乃のポートフォリオサイトです。本サイトは、Web制作を行うフリーランスチーム Toiro Works の一部として運営されています。">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z7851R0JVS');
+</script>
+
+<header class="c-header">
+  <div class="header-logo-menu">
+    <div class="logo-area"><h1>Komori Yatono Portfolio</h1></div>
+
+    <!-- ハンバーガー -->
+    <button class="c-hamburger" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- ナビメニュー -->
+    <nav class="c-header__nav">
+      <a href="#about">About</a>
+      <a href="#works-illustration">Works</a>
+      <a href="#works-web">Web</a>
+      <a href="#works-doujin">Doujin</a>
+      <a href="#SNS">SNS</a>
+      <a href="#works-note">note</a>
+    </nav>
+  </div>
+</header>
+
+<section id="hero"></section>
+
+<main>
+<!-- About -->
+<section id="about">
+<h2>About</h2>
+<div class="left-text">
+<p>小森やと乃のポートフォリオサイトです。イラストやデザインの作品を紹介しています。</p>
+<p>本サイトは、Web制作を行うフリーランスチーム"Toiro Works"の一部として運営されています。</p>
+<p><b>※無断転載及びAI学習等といった迷惑行為等を固く禁じます。</b></p>
+</div>
+</section>
+
+<!-- Works Illustration -->
+<section id="works-illustration">
+<h2>Works - for Toiro Works</h2>
+<div class="gallery">
+  <div class="gallery-item size-medium"><img src="ic012.png" alt="イラストカット01"><p>カット01</p></div>
+  <div class="gallery-item size-medium"><img src="ic02.png" alt="イラストカット02"><p>カット02</p></div>
+  <div class="gallery-item size-large"><img src="mv.png" alt="メインビジュアル"><p>メインビジュアル</p></div>
+</div>
+</section>
+
+<!-- Works Web -->
+<section id="works-web">
+<h2>Works - Web</h2>
+<div class="gallery">
+  <div class="gallery-item size-medium">
+    <a href="https://CafeLumo.hp.peraichi.com/"><img src="CafeLumo.png" alt="CafeLumo"></a>
+    <p>架空のカフェ "Cafe Lumo"</p>
+  </div>
+</div>
+</section>
+
+<!-- SNS -->
+<section id="SNS">
+<h2>X(旧Twitter)</h2>
+<p>@Komori_Yatono</p>
+<h2>所属チーム公式X</h2>
+<p>@10iro_works</p>
+<p><a href="https://x.com/10iro_works" class="button">お仕事依頼はこちらから</a></p>
+</section>
+</main>
+
+<footer>
+<p>&copy; 2025 Toiro Works</p>
+</footer>
+
+<!-- JS -->
+<script>
+  // スクロールでヘッダー色変更
+  window.addEventListener('scroll', function() {
+      const header = document.querySelector('.c-header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+  });
+
+  // ハンバーガー開閉
+  const hamburger = document.querySelector('.c-hamburger');
+  const nav = document.querySelector('.c-header__nav');
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    hamburger.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
