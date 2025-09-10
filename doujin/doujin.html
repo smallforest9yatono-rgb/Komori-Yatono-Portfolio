@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komori Yatono Portfolio</title>
+<meta name="description" content="小森やと乃のポートフォリオサイトです。本サイトは、Web制作を行うフリーランスチーム Toiro Works の一部として運営されています。">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="doujin.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0GFRT4KJK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0GFRT4KJK9');
+</script>
+</head>
+
+<body>
+
+<header class="c-header">
+  <div class="header-logo-menu">
+    <h1 class="logo-area">Komori Yatono Portfolio</h1>
+
+    <!-- PCメニュー -->
+    <nav class="pc-menu">
+      <a href="./#about">About</a>
+      <a href="./#works-illustration">Works</a>
+      <a href="./#works-web">Web</a>
+      <a href="#works-doujin">Doujin</a>
+      <a href="./#SNS">SNS</a>
+      <a href="./#works-note">note</a>
+    </nav>
+
+    <!-- スマホハンバーガー -->
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </div>
+</header>
+
+<!-- スマホモーダル -->
+<div class="modal" id="modal">
+  <button class="close" id="close">&times;</button>
+  <nav class="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#works-illustration">Works</a>
+    <a href="#works-web">Web</a>
+    <a href="#works-doujin">Doujin</a>
+    <a href="#SNS">SNS</a>
+    <a href="https://note.com/komori_yatono312">note</a>
+  </nav>
+</div>
+
+<section id="hero"></section>
+
+<main>
+
+<section id="works-illustration">
+    <h2>Doujin Cover Illustration</h2>
+    <div class="gallery">
+        <div class="gallery-group">
+            <div class="gallery-item size-medium">
+            <div class="img-wrapper">
+            <img src="book1.jpg" alt="doujin1"></div>
+        </div>
+    </div>
+</section>
+
+<section id="works-illustration">
+    <h2>Doujin GOODS</h2>
+    <div class="gallery">
+            <p>準備中</p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; 2025 Toiro Works</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const modal = document.getElementById("modal");
+  const closeBtn = document.getElementById("close");
+
+  hamburger.addEventListener("click", () => {
+    modal.classList.add("open");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("open");
+  });
+
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      modal.classList.remove("open");
+    });
+  });
+</script>
+
+</body>
+</html>
