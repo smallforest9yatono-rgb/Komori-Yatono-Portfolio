@@ -97,6 +97,23 @@
   const modal = document.getElementById("modal");
   const hamburger = document.getElementById("hamburger");
   const closeBtn = document.getElementById("close");
+  const ribbon = document.querySelector('.ribbon-bottom');
+  const footer = document.querySelector('footer');
+
+window.addEventListener('scroll', () => {
+  const footerTop = footer.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+
+  if (footerTop < windowHeight) {
+    // フッターにかかる直前で止める
+    ribbon.style.position = 'absolute';
+    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
+  } else {
+    // 通常は固定表示
+    ribbon.style.position = 'fixed';
+    ribbon.style.bottom = '20px';
+  }
+});
 
   // --- スマホモーダル開閉 ---
   if(hamburger && modal && closeBtn){
