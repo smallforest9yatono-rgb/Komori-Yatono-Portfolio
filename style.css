@@ -250,14 +250,14 @@ section {
     background: #fffaf0;
     padding: 100px 20px; /* 上下余白でゆとり */
     position: relative;
-    box-shadow:none;
+    box-shadow:none !important;
 }
 
 .ribbon-bottom {
     position: fixed;      /* 画面下に固定 */
     bottom: 20px;         /* フッター上に少し余白 */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) !important;
     width: 800px;         /* 幅はレスポンシブに調整可能 */
     max-width: 50vw;      /* 画面幅50%まで縮小 */
     z-index: 999;
