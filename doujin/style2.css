@@ -239,17 +239,26 @@ section {
 
 /* ======= ガードロープ ======= */
 .ribbon-bottom {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) !important;
-    width: 800px;
-    max-width: 50vw;
-    z-index: 9999;
-    pointer-events: none;
-    justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  max-width: 50vw;
+  width: 800px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none; /* 背景を透明にしてPNG透過を活かす */
 }
 
+.ribbon-bottom-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
 @media (min-width:768px){
     .ribbon-bottom {
         bottom:10px !important;

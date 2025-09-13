@@ -36,16 +36,21 @@ document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
 const ribbon = document.querySelector('.ribbon-bottom');
 const footer = document.querySelector('footer');
 
-window.addEventListener('scroll', () => {
+function updateRibbonPosition() {
   const footerTop = footer.getBoundingClientRect().top;
+  const ribbonHeight = ribbon.offsetHeight;
   const windowHeight = window.innerHeight;
 
-  if(footerTop < windowHeight){
-    // フッター直前で止める
+  if (footerTop < windowHeight + ribbonHeight) {
     ribbon.style.position = 'absolute';
-    ribbon.style.bottom = `${window.scrollY + windowHeight - footer.offsetHeight}px`;
+    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
   } else {
     ribbon.style.position = 'fixed';
     ribbon.style.bottom = '20px';
   }
-});
+}
+
+window.addEventListener('scroll', updateRibbonPosition);
+window.addEventListener('resize', updateRibbonPosition);
+window.addEventListener('load', updateRibbonPosition);
+
