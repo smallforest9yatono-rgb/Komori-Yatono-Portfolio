@@ -188,6 +188,94 @@ section {
   flex-wrap: wrap;
 }
 
+/* ======= 額縁 ======= */
+.frame {
+  border: 14px solid #A890C0;
+  padding: 40px;
+  margin:60px auto;
+  max-width: 900px;
+  text-align: center;
+  background: #fffaf0;
+
+/* 額縁の立体感 */
+  box-shadow:0px 6px 20px rgba(0,0,0,0.4),
+             inset 0px 0px 10px rgba(0,0,0,0.2)
+}
+
+.frame-2 {
+  border: 14px solid #5B3A70;
+  padding: 40px;
+  margin:60px auto;
+  max-width: 900px;
+  text-align: center;
+  background: #fffaf0;
+
+/* 額縁の立体感 */
+  box-shadow:0px 6px 20px rgba(0,0,0,0.4),
+             inset 0px 0px 10px rgba(0,0,0,0.2)
+}
+
+/* works 見出し */
+.frame-h2 {
+  font-family:"Cromorant Garamond",serif;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ======= 作品群 ======= */
+.works-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* 作品画像 */
+.works-image {
+  width: 250px;
+  border:6px solid #a59aca;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+}
+
+.works-image-2 {
+  width: 250px;
+  border:6px solid #a2beea;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+}
+
+.decorated-section {
+    background: #fffaf0;
+    padding: 100px 20px; /* 上下余白でゆとり */
+    position: relative;
+    box-shadow:none;
+}
+
+.ribbon-bottom {
+    position: fixed;      /* 画面下に固定 */
+    bottom: 20px;         /* フッター上に少し余白 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;         /* 幅はレスポンシブに調整可能 */
+    max-width: 50vw;      /* 画面幅50%まで縮小 */
+    z-index: 999;
+    pointer-events: none; /* 下の操作を邪魔しない */
+}
+
+@media (min-width:768px){
+    .ribbon-bottom {
+        bottom:10px !important ; /* PCではフッターに近づける */
+        }
+}
+
+footer {
+    background: #f5f5f5;
+    padding: 60px 20px;
+    position: relative;
+}
+
 /* ======= ボタン ======= */
 a.button {
   display: inline-block;
