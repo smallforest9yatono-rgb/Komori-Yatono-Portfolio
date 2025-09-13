@@ -33,6 +33,9 @@ document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
 });
 
 // ガードロープ固定・フッター手前で止める
+ribbon.style.bottom = '20px';
+ribbon.style.position = 'fixed';
+
 const ribbon = document.querySelector('.ribbon-bottom');
 const footer = document.querySelector('footer');
 
