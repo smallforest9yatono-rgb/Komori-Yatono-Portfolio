@@ -35,7 +35,7 @@ section {
   margin: 0 auto;
 }
 
-/* ======= hero ======= */
+/* hero */
 #hero {
   width: 100%;
   height: 400px;
@@ -50,7 +50,7 @@ section {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #1e1f26; /* フッターと同じ色 */
+  background: #1e1f26;
   padding: 10px 20px;
   z-index: 1000;
 }
@@ -59,17 +59,15 @@ section {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: center; /* タイトル右横にメニュー/ハンバーガー */
+  justify-content: center;
   gap: 300px;
   padding: 0px 40px;
 }
 
-/* ロゴ */
 .logo-area {
   font-size: 1.5rem;
 }
 
-/* PCメニュー */
 .pc-menu {
   display: flex;
   gap: 25px;
@@ -85,7 +83,6 @@ section {
   opacity: 0.6;
 }
 
-/* ハンバーガー */
 .hamburger {
   display: none;
   font-size: 28px;
@@ -145,7 +142,7 @@ section {
   gap: 20px;
   justify-content: center;
   padding: 20px;
-  flex-direction: row; /* PC横並び */
+  flex-direction: row;
 }
 
 .gallery-item {
@@ -196,10 +193,8 @@ section {
   max-width: 900px;
   text-align: center;
   background: #fffaf0;
-
-/* 額縁の立体感 */
   box-shadow:0px 6px 20px rgba(0,0,0,0.4),
-             inset 0px 0px 10px rgba(0,0,0,0.2)
+             inset 0px 0px 10px rgba(0,0,0,0.2);
 }
 
 .frame-2 {
@@ -209,26 +204,15 @@ section {
   max-width: 900px;
   text-align: center;
   background: #fffaf0;
-
-/* 額縁の立体感 */
   box-shadow:0px 6px 20px rgba(0,0,0,0.4),
-             inset 0px 0px 10px rgba(0,0,0,0.2)
+             inset 0px 0px 10px rgba(0,0,0,0.2);
 }
 
-/* works 見出し */
 .frame-h2 {
   font-family:"Cromorant Garamond",serif;
   font-size: 1.2rem;
   margin-bottom: 30px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-/* ======= 作品群 ======= */
-.works-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
 }
 
 /* 作品画像 */
@@ -248,33 +232,28 @@ section {
 
 .decorated-section {
     background: #fffaf0;
-    padding: 100px 20px; /* 上下余白でゆとり */
+    padding: 100px 20px;
     position: relative;
     box-shadow:none !important;
 }
 
+/* ======= ガードロープ ======= */
 .ribbon-bottom {
-    position: fixed;      /* 画面下に固定 */
-    bottom: 20px;         /* フッター上に少し余白 */
+    position: fixed;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%) !important;
-    width: 800px;         /* 幅はレスポンシブに調整可能 */
-    max-width: 50vw;      /* 画面幅50%まで縮小 */
+    width: 800px;
+    max-width: 50vw;
     z-index: 9999;
-    pointer-events: none; /* 下の操作を邪魔しない */
+    pointer-events: none;
     justify-content: center;
 }
 
 @media (min-width:768px){
     .ribbon-bottom {
-        bottom:10px !important ; /* PCではフッターに近づける */
-        }
-}
-
-footer {
-    background: #f5f5f5;
-    padding: 60px 20px;
-    position: relative;
+        bottom:10px !important;
+    }
 }
 
 /* ======= ボタン ======= */
