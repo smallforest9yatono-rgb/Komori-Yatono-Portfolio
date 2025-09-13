@@ -248,7 +248,7 @@ section {
 
 .decorated-section {
     background: #fffaf0;
-    padding: 100px 20px; /* 上下余白でゆとり */
+    padding: 100px 20px ; /* 上下余白でゆとり */
     position: relative;
     box-shadow:none;
 }
@@ -266,7 +266,7 @@ section {
 
 @media (min-width:768px){
     .ribbon-bottom {
-        bottom:10px ; /* PCではフッターに近づける */
+        bottom:10px !important; /* PCではフッターに近づける */
         }
 }
 
