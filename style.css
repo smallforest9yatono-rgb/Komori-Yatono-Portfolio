@@ -253,7 +253,7 @@ section {
     box-shadow:none;
 }
 
-.ribbon-bottom {
+#ribbon-bottom {
     position: fixed;      /* 画面下に固定 */
     bottom: 20px;         /* フッター上に少し余白 */
     left: 50%;
