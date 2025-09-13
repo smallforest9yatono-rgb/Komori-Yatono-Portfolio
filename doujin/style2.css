@@ -260,7 +260,7 @@ section {
     transform: translateX(-50%);
     width: 800px;         /* 幅はレスポンシブに調整可能 */
     max-width: 50vw;      /* 画面幅50%まで縮小 */
-    z-index: 999;
+    z-index: 9999;
     pointer-events: none; /* 下の操作を邪魔しない */
     justify-content: center;
 }
