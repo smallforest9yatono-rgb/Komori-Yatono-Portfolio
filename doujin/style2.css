@@ -230,6 +230,28 @@ section {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
 }
 
+/* Doujin専用ギャラリー */
+#works-doujin .gallery-item,
+#works-doujin .frame-2,
+#works-doujin .frame-h2,
+#works-doujin .img-wrapper {
+  width: 100%;
+  aspect-ratio: 2 / 3; /* 縦:横 = 3:2 の縦長 */
+  overflow: hidden;
+}
+
+#works-doujin .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 枠いっぱいに収める */
+  display: block;
+  transition: transform 0.3s;
+}
+
+#works-doujin .img-wrapper img:hover {
+  transform: scale(1.05);
+}
+
 .decorated-section {
     background: #fffaf0;
     padding: 100px 20px;
