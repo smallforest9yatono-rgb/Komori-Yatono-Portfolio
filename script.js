@@ -35,18 +35,20 @@ document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
 // ガードロープ（リボン）がフッター手前で止まる処理
 const ribbon = document.querySelector('.ribbon-bottom');
 const footer = document.querySelector('footer');
+const lastSection = document.querySelector('#SNS');  // 最後のセクションをターゲット
 
 function updateRibbonPosition() {
   const footerTop = footer.getBoundingClientRect().top;  // フッターの位置
   const ribbonHeight = ribbon.offsetHeight;  // ガードロープの高さ
   const windowHeight = window.innerHeight;
+  const lastSection = document.querySelector('.last-section'); // クラス名で指定
   const lastSectionTop = lastSection.getBoundingClientRect().top;  // 最後のセクションの位置
   const lastSectionHeight = lastSection.offsetHeight;  // 最後のセクションの高さ
 
   // フッターが画面の下に近づくとガードロープを調整
   if (lastSectionTop + lastSectionHeight <= windowHeight && footerTop > ribbonHeight) {
     // 最後のセクションとフッターの間でガードロープが動くように
-    ribbon.style.position = 'absolute'; // absolute に変更
+    ribbon.style.position = 'fixed'; // absolute に変更
     ribbon.style.bottom = `${windowHeight - footerTop + 20}px`; // フッター手前で調整
   } else {
     // 通常の位置で画面下に固定
