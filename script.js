@@ -55,25 +55,41 @@ const snsSection = document.querySelector('#SNS');  // SNSセクションの要�
 
 
 function updateRibbonPosition() {
-  if (!ribbon || !footer) return;
+  if (!ribbon || !footer || !snsSection) return;
 
   const footerRect = footer.getBoundingClientRect();
+  const snsRect = snsSection.getBoundingClientRect();
   const windowHeight = window.innerHeight;
-  const overlap = windowHeight - footerRect.top; // フッターが画面に入ってる高さ
+  const ribbonHeight = ribbon.offsetHeight;
 
-  if (overlap > 0) {
-    // フッターに被りそう → bottom をその分だけ上げる
-    ribbon.style.bottom = `${overlap + 20}px`; // 20pxは余白
-  } else {
-    // 普段は固定位置
-    ribbon.style.bottom = "50px"; // 通常時の位置
+  // SNSセクションの下にいる場合の位置
+  const snsBottomToWindowBottom = windowHeight - (snsRect.top + snsRect.height);
+
+  // フッターが画面に入ってる高さ
+  const footerOverlap = windowHeight - footerRect.top;
+
+  // ribbon を固定位置に設定
+  ribbon.style.position = 'fixed';
+
+  // SNSセクションの下に移動
+  let bottomOffset = 50; // デフォルトの画面下からの距離
+
+  if (snsBottomToWindowBottom < 50) {
+    bottomOffset = snsBottomToWindowBottom + 20; // 余白 20px
   }
+
+  // フッターに被る場合は優先して上げる
+  if (footerOverlap > 0) {
+    bottomOffset = footerOverlap + 20; // 余白 20px
+  }
+
+  ribbon.style.bottom = `${bottomOffset}px`;
 }
 
-window.addEventListener("scroll", updateRibbonPosition);
-window.addEventListener("resize", updateRibbonPosition);
-updateRibbonPosition();
-
+// スクロールやリサイズ、ロード時に呼び出し
+window.addEventListener('scroll', updateRibbonPosition);
+window.addEventListener('resize', updateRibbonPosition);
+window.addEventListener('load', updateRibbonPosition);
 
 
 

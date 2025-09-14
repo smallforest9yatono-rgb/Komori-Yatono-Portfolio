@@ -4,26 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById("close");
   const ribbon = document.querySelector('.ribbon-bottom');
   const footer = document.querySelector('footer');
-  const doujinSection = document.querySelector('#doujin');  // 任意
+  const doujinSection = document.querySelector('#doujin');  // 任意のセクション
 
-  // ribbonやfooterが存在しない場合は処理しない
   if (!ribbon || !footer) return;
 
+  // モバイルメニューの開閉
   if (hamburger && modal && closeBtn) {
+    const closeModal = () => {
+      modal.classList.remove("open");
+      ribbon.style.display = 'block';
+    };
+
     hamburger.addEventListener("click", () => {
       modal.classList.add("open");
       ribbon.style.display = 'none';
     });
 
-    closeBtn.addEventListener("click", () => {
-      modal.classList.remove("open");
-      ribbon.style.display = 'block';
-    });
+    closeBtn.addEventListener("click", closeModal);
 
     document.querySelectorAll(".mobile-menu a").forEach(link => {
       link.addEventListener("click", (e) => {
-        modal.classList.remove("open");
-        ribbon.style.display = 'block';
+        closeModal();
         if (link.href.includes("note.com")) return;
 
         const href = link.getAttribute("href");
@@ -46,54 +47,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ガードロープ位置調整関数
+  // ガードロープ位置調整
   function updateRibbonPosition() {
-    const footerTop = footer.getBoundingClientRect().top;
-    const ribbonHeight = ribbon.offsetHeight;
+    if (!ribbon || !footer) return;
+
     const windowHeight = window.innerHeight;
+    const ribbonHeight = ribbon.offsetHeight;
+    const footerRect = footer.getBoundingClientRect();
 
+    let bottomOffset = 20; // デフォルトの画面下からの距離
+
+    // 任意セクション（doujinSection）の下にいる場合
     if (doujinSection) {
-      const doujinTop = doujinSection.getBoundingClientRect().top;
-      const doujinHeight = doujinSection.offsetHeight;
-
-      if (doujinTop <= windowHeight - ribbonHeight && doujinTop + doujinHeight > 0) {
-        ribbon.style.position = 'fixed';
-        ribbon.style.bottom = `${windowHeight - (doujinTop + doujinHeight) + 20}px`;
-        return;
+      const doujinRect = doujinSection.getBoundingClientRect();
+      if (doujinRect.top <= windowHeight - ribbonHeight && doujinRect.bottom > 0) {
+        bottomOffset = windowHeight - doujinRect.bottom + 20;
       }
     }
 
-    if (footerTop < windowHeight + ribbonHeight) {
-      ribbon.style.position = 'fixed';
-      ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
-    } else {
-      ribbon.style.position = 'fixed';
-      ribbon.style.bottom = '20px';
+    // フッターに被る場合
+    const footerOverlap = windowHeight - footerRect.top;
+    if (footerOverlap > 0) {
+      bottomOffset = footerOverlap + 20;
     }
+
+    ribbon.style.position = 'fixed';
+    ribbon.style.bottom = `${bottomOffset}px`;
   }
 
   // イベント登録
   window.addEventListener('scroll', updateRibbonPosition);
   window.addEventListener('resize', updateRibbonPosition);
   window.addEventListener('load', updateRibbonPosition);
+  updateRibbonPosition();
 });
-
-function updateRibbonPosition() {
-  if (!ribbon || !footer) return;
-
-  const footerRect = footer.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-  const overlap = windowHeight - footerRect.top; // フッターが画面に入ってる高さ
-
-  if (overlap > 0) {
-    // フッターに被りそう → bottom をその分だけ上げる
-    ribbon.style.bottom = `${overlap + 20}px`; // 20pxは余白
-  } else {
-    // 普段は固定位置
-    ribbon.style.bottom = "50px"; // 通常時の位置
-  }
-}
-
-window.addEventListener("scroll", updateRibbonPosition);
-window.addEventListener("resize", updateRibbonPosition);
-updateRibbonPosition();
