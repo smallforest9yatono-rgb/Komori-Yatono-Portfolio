@@ -112,6 +112,10 @@ section {
   display: flex;
 }
 
+.modal.open .ribbon-bottom{
+  display: none;
+}
+
 .modal .close {
   align-self: flex-end;
   font-size: 24px;
@@ -259,6 +263,7 @@ section {
   pointer-events: none;
   justify-content: center;
   background: none;  /* 背景色なし */
+  display: block;
 }
 
 .ribbon-bottom-img {

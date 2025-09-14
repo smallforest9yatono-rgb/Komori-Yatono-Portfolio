@@ -1,34 +1,47 @@
-// モーダル開閉
-const modal = document.getElementById("modal");
-const hamburger = document.getElementById("hamburger");
-const closeBtn = document.getElementById("close");
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById("modal");
+  const hamburger = document.getElementById("hamburger");
+  const closeBtn = document.getElementById("close");
+  const ribbon = document.querySelector('.ribbon-bottom');  // ガードロープの要素
 
-if(hamburger && modal && closeBtn){
-  hamburger.addEventListener("click", () => modal.classList.add("open"));
-  closeBtn.addEventListener("click", () => modal.classList.remove("open"));
+  // ribbonが存在しない場合のエラーを防ぐ
+  if (!ribbon) return;
 
-  document.querySelectorAll(".mobile-menu a").forEach(link => {
-    link.addEventListener("click", (e) => {
-      modal.classList.remove("open");
-      if(link.href.includes("note.com")) return;
-
-      const href = link.getAttribute("href");
-      if(href.startsWith("#")){
-        e.preventDefault();
-        const targetEl = document.getElementById(href.slice(1));
-        if(targetEl) targetEl.scrollIntoView({ behavior: "smooth" });
-      }
+  if (hamburger && modal && closeBtn) {
+    hamburger.addEventListener("click", () => {
+      modal.classList.add("open");
+      ribbon.style.display = 'none'; // モーダルが開いた時にガードロープを非表示
     });
-  });
-}
 
-// PCメニュー スムーズスクロール
-document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const targetId = link.getAttribute("href").slice(1);
-    const targetEl = document.getElementById(targetId);
-    if(targetEl) targetEl.scrollIntoView({ behavior: "smooth" });
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("open");
+      ribbon.style.display = 'block'; // モーダルが閉じた時にガードロープを再表示
+    });
+
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", (e) => {
+        modal.classList.remove("open");
+        ribbon.style.display = 'block'; // モーダルが閉じた時にガードロープを再表示
+        if (link.href.includes("note.com")) return;
+
+        const href = link.getAttribute("href");
+        if (href.startsWith("#")) {
+          e.preventDefault();
+          const targetEl = document.getElementById(href.slice(1));
+          if (targetEl) targetEl.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  }
+
+  // PCメニュー スムーズスクロール
+  document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").slice(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) targetEl.scrollIntoView({ behavior: "smooth" });
+    });
   });
 });
 
