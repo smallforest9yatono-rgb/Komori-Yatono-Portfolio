@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById("close");
   const ribbon = document.querySelector('.ribbon-bottom');
   const footer = document.querySelector('footer');
-  const doujinSection = document.querySelector('#doujin');  // 任意のセクション
+  const doujinSection = document.querySelector('#doujin'); // 任意のセクション
 
+  // ribbon や footer が存在しない場合は処理を終了
   if (!ribbon || !footer) return;
 
   // モバイルメニューの開閉
@@ -57,18 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let bottomOffset = 20; // デフォルトの画面下からの距離
 
-    // 任意セクション（doujinSection）の下にいる場合
+    // doujinSection が存在する場合のみ計算
     if (doujinSection) {
       const doujinRect = doujinSection.getBoundingClientRect();
       if (doujinRect.top <= windowHeight - ribbonHeight && doujinRect.bottom > 0) {
-        bottomOffset = windowHeight - doujinRect.bottom + 20;
+        bottomOffset = windowHeight - doujinRect.bottom + 20; // 余白20px
       }
     }
 
     // フッターに被る場合
     const footerOverlap = windowHeight - footerRect.top;
     if (footerOverlap > 0) {
-      bottomOffset = footerOverlap + 20;
+      bottomOffset = footerOverlap + 20; // 余白20px
     }
 
     ribbon.style.position = 'fixed';
