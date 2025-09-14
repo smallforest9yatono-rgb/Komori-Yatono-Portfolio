@@ -246,20 +246,19 @@ section {
     box-shadow:none !important;
 }
 
-/* ======= ガードロープ ======= */
+/* ガードロープ */
 .ribbon-bottom {
-  position: relative;
-  bottom: 20px;
+  position: fixed;
+  bottom: 20px; /* 常に画面下部に固定 */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 9999;
+  width: 800px !important;
   max-width: 50vw;
-  width: 800px;
+  height: auto !important;
+  z-index: 9999;
   pointer-events: none;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  background: none; /* 背景を透明にしてPNG透過を活かす */
+  background: none;  /* 背景色なし */
 }
 
 .ribbon-bottom-img {

@@ -32,28 +32,26 @@ document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
   });
 });
 
-// ガードロープ固定・フッター手前で止める
+// ガードロープ（リボン）がフッター手前で止まる処理
 const ribbon = document.querySelector('.ribbon-bottom');
 const footer = document.querySelector('footer');
 
 function updateRibbonPosition() {
-  const footerTop = footer.getBoundingClientRect().top;  // フッターの位置
-  const ribbonHeight = ribbon.offsetHeight;  // ガードロープの高さ
+  const footerTop = footer.getBoundingClientRect().top;
+  const ribbonHeight = ribbon.offsetHeight;  // ribbonの高さ
   const windowHeight = window.innerHeight;
 
-  // ガードロープがフッターの前に来たら位置を調整
+  // フッター手前で止める
   if (footerTop < windowHeight + ribbonHeight) {
-    // フッター手前で止まるように
     ribbon.style.position = 'absolute';
     ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
   } else {
-    // 通常の固定位置
     ribbon.style.position = 'fixed';
-    ribbon.style.bottom = '20px';  // 常に画面下部に固定
+    ribbon.style.bottom = '20px';  // 固定
   }
 }
 
-// スクロールやリサイズ時に位置を調整
 window.addEventListener('scroll', updateRibbonPosition);
 window.addEventListener('resize', updateRibbonPosition);
 window.addEventListener('load', updateRibbonPosition);
+
