@@ -44,12 +44,12 @@ function updateRibbonPosition() {
   // フッターが画面の下に近づくとガードロープを調整
   if (footerTop < windowHeight + ribbonHeight) {
     // フッター手前で止まるように
-    ribbon.style.position = 'absolute'; // position: absolute に変更
-    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`; // フッターと重ならないように調整
+    ribbon.style.position = 'fixed'; // position: absolute に変更
+    ribbon.style.bottom = `${windowHeight - footerTop + 50}px`; // フッターと重ならないように調整
   } else {
     // 通常の位置で画面下に固定
     ribbon.style.position = 'fixed';  // position: fixed のままで
-    ribbon.style.bottom = '20px';  // 画面の下部に固定
+    ribbon.style.bottom = '50px';  // 画面の下部に固定
   }
 }
 
