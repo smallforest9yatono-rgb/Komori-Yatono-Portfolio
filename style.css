@@ -7,7 +7,7 @@ body {
   color: #333;
 }
 
-h1,h2 {
+h1, h2 {
   font-family: 'Gill Sans','M PLUS Rounded 1c',sans-serif;
   font-weight: 700;
   color: #a59aca;
@@ -58,7 +58,6 @@ section {
 .header-logo-menu {
   display: flex;
   align-items: center;
-  flex-direction: row;
   justify-content: center;
   gap: 300px;
   padding: 0px 40px;
@@ -112,10 +111,6 @@ section {
   display: flex;
 }
 
-.modal.open .ribbon-bottom{
-  display: none;
-}
-
 .modal .close {
   align-self: flex-end;
   font-size: 24px;
@@ -146,7 +141,6 @@ section {
   gap: 20px;
   justify-content: center;
   padding: 20px;
-  flex-direction: row;
 }
 
 .gallery-item {
@@ -221,12 +215,11 @@ section {
 
 /* ギャラリー内画像 */
 .work-image {
-  width: 100%;  /* 親要素の幅に合わせる */
-  height: auto;  /* 高さを自動で調整 */
-  object-fit: contain;  /* 画像を親要素内で縦横比を保って収める */
-  display: block;  /* 画像がブロック要素として表示されるように */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
-
 
 /* 作品画像 */
 .works-image {
@@ -250,19 +243,18 @@ section {
     box-shadow:none !important;
 }
 
-/* ガードロープ */
+/* ======= ガードロープ ======= */
 .ribbon-bottom {
   position: fixed;
-  bottom: 50px; /* 常に画面下部に固定 */
+  bottom: 0;              /* 常に画面下 */
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
   max-width: 800px;
-  height: auto !important;
+  height: auto;
   z-index: 9999;
   pointer-events: none;
-  justify-content: center;
-  background: none;  /* 背景色なし */
+  background: none;
   display: block;
 }
 
@@ -271,18 +263,6 @@ section {
   height: auto;
   display: block;
   pointer-events: none;
-}
-@media (min-width:768px){
-    .ribbon-bottom {
-        bottom:10px !important;
-    }
-}
-
-@media (max-width:750px) {
-  .ribbon-bottom {
-    bottom:0;
-    width:95%;
-  }
 }
 
 /* ======= ボタン ======= */
@@ -335,4 +315,9 @@ footer {
   .gallery { flex-direction: column; align-items: center; }
   .gallery-item.size-medium { width: 90%; }
   .gallery-item.size-large { width: 95%; }
+
+  .ribbon-bottom {
+    width: 95%;
+    bottom: 0;
+  }
 }
