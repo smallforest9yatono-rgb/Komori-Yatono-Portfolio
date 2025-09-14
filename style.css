@@ -319,6 +319,6 @@ footer {
   .ribbon-bottom {
     width: 95%;
     bottom: 0;
-    display: block !important;
+    display: block ;
   }
 }
