@@ -38,8 +38,8 @@ section {
 /* hero */
 #hero {
   width: 100%;
-  height: 200px;
-  background-image: url("2ndtop_image.png");
+  height: 400px;
+  background-image: url("top_image.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -209,11 +209,20 @@ section {
 }
 
 .frame-h2 {
-  font-family:"Cromorant Garamond",serif;
+  font-family:"Cormorant Garamond",serif;
   font-size: 1.2rem;
   margin-bottom: 30px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
+
+/* ギャラリー内画像 */
+.work-image {
+  width: 100%;  /* 親要素の幅に合わせる */
+  height: auto;  /* 高さを自動で調整 */
+  object-fit: contain;  /* 画像を親要素内で縦横比を保って収める */
+  display: block;  /* 画像がブロック要素として表示されるように */
+}
+
 
 /* 作品画像 */
 .works-image {
