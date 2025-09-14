@@ -59,12 +59,13 @@ function updateRibbonPosition() {
   const snsTop = snsSection.getBoundingClientRect().top;  // SNSセクションの位置
   const snsHeight = snsSection.offsetHeight; // SNSセクションの高さ
 
+  
   // SNSセクションの下部とフッターの間でガードロープを動かす
   if (snsTop + snsHeight <= windowHeight && footerTop > ribbonHeight) {
 
   //セクション内で止まるように位置を調整
     ribbon.style.position = 'fixed';  // absolute に変更
-    ribbon.style.bottom = `${windowHeight - (doujinTop + doujinHeight) + 20}px`;  // Doujinセクションの下に固定
+    ribbon.style.bottom = `${windowHeight - (snsTop + snsHeight) + 20}px`;  // Doujinセクションの下に固定
   } 
   
   else {

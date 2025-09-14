@@ -57,7 +57,21 @@ function updateRibbonPosition() {
   const doujinTop = doujinSection.getBoundingClientRect().top; // Doujinセクションの位置
   const doujinHeight = doujinSection.offsetHeight; // Doujinセクションの高さ
 
-  // Doujinセクション内でガードロープが動く
+  // SNSセクションの下部とフッターの間でガードロープを動かす
+  if (goodsTop + goodsHeight <= windowHeight && footerTop > ribbonHeight) {
+
+  //セクション内で止まるように位置を調整
+    ribbon.style.position = 'fixed';  // absolute に変更
+    ribbon.style.bottom = `${windowHeight - (goodsTop + goodsHeight) + 20}px`;  // Doujinセクションの下に固定
+  } 
+  
+  else {
+    // 通常の位置で画面下に固定
+    ribbon.style.position = 'fixed';  // position: fixed のままで
+    ribbon.style.bottom = '50px';  // 画面下部から50pxの位置に固定
+  }
+
+  /* // Doujinセクション内でガードロープが動く
   if (doujinTop <= windowHeight - ribbonHeight && doujinTop + doujinHeight > 0) {
     // Doujinセクション内で止まるように位置を調整
     ribbon.style.position = 'fixed';  // absolute に変更
@@ -70,7 +84,7 @@ function updateRibbonPosition() {
     // 通常の位置で画面下に固定
     ribbon.style.position = 'fixed';  // position: fixed のままで
     ribbon.style.bottom = '20px';  // 画面下部に固定
-  }
+  } */
 }
 
 // スクロールやリサイズの際に位置を更新
