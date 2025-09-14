@@ -40,12 +40,14 @@ function updateRibbonPosition() {
   const footerTop = footer.getBoundingClientRect().top;  // フッターの位置
   const ribbonHeight = ribbon.offsetHeight;  // ガードロープの高さ
   const windowHeight = window.innerHeight;
+  const lastSectionTop = lastSection.getBoundingClientRect().top;  // 最後のセクションの位置
+  const lastSectionHeight = lastSection.offsetHeight;  // 最後のセクションの高さ
 
   // フッターが画面の下に近づくとガードロープを調整
-  if (footerTop < windowHeight + ribbonHeight) {
-    // フッター手前で止まるように
-    ribbon.style.position = 'fixed'; // position: absolute に変更
-    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`; // フッターと重ならないように調整
+  if (lastSectionTop + lastSectionHeight <= windowHeight && footerTop > ribbonHeight) {
+    // 最後のセクションとフッターの間でガードロープが動くように
+    ribbon.style.position = 'absolute'; // absolute に変更
+    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`; // フッター手前で調整
   } else {
     // 通常の位置で画面下に固定
     ribbon.style.position = 'fixed';  // position: fixed のままで
