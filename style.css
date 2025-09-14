@@ -256,8 +256,8 @@ section {
   bottom: 50px; /* 常に画面下部に固定 */
   left: 50%;
   transform: translateX(-50%);
-  width: 800px !important;
-  max-width: 50vw;
+  width: 90%;
+  max-width: 800px;
   height: auto !important;
   z-index: 9999;
   pointer-events: none;
@@ -276,6 +276,13 @@ section {
     .ribbon-bottom {
         bottom:10px !important;
     }
+}
+
+@media (max-width:750px) {
+  .ribbon-bottom {
+    bottom:0;
+    width:95%;
+  }
 }
 
 /* ======= ボタン ======= */
