@@ -237,27 +237,32 @@ section {
     box-shadow:none !important;
 }
 
-/* ======= ガードロープ ======= */
+/* ガードロープ */
 .ribbon-bottom {
-  position: relative;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  max-width: 50vw;
-  width: 800px;
-  pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none; /* 背景を透明にしてPNG透過を活かす */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    max-width: 50vw;
+    z-index: 9999;
+    pointer-events: none;
+    justify-content: center;
 }
 
-.ribbon-bottom-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  pointer-events: none;
+/* リボンの見た目（画像） */
+.ribbon-bottom-after {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 100%;
+    background: url('img/rope.png') no-repeat center center;
+    background-size: contain;
+}
+
+/* モーダルの画像をクリックした時の効果 */
+.modal-img {
+    cursor: pointer;
 }
 
 

@@ -32,28 +32,20 @@ document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
   });
 });
 
-// ガードロープ固定・フッター手前で止める
-ribbon.style.bottom = '20px';
-ribbon.style.position = 'fixed';
-
-const ribbon = document.querySelector('.ribbon-bottom');
-const footer = document.querySelector('footer');
-
-function updateRibbonPosition() {
-  const footerTop = footer.getBoundingClientRect().top;
-  const ribbonHeight = ribbon.offsetHeight;
+// ガードロープ（リボン）がフッター手前で止まる処理
+window.addEventListener("scroll", () => {
+  const footer = document.querySelector("footer");
+  const ribbon = document.querySelector(".ribbon-bottom");
+  const footerTop = footer.offsetTop;
+  const scrollY = window.scrollY;
   const windowHeight = window.innerHeight;
 
-  if (footerTop < windowHeight + ribbonHeight) {
-    ribbon.style.position = 'absolute';
-    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
+  if (scrollY + windowHeight >= footerTop) {
+    ribbon.style.position = "absolute";
+    ribbon.style.bottom = `${footer.offsetHeight}px`;  // フッター直前で停止
   } else {
-    ribbon.style.position = 'fixed';
-    ribbon.style.bottom = '20px';
+    ribbon.style.position = "fixed";
+    ribbon.style.bottom = "20px";  // 固定位置に戻す
   }
-}
-
-window.addEventListener('scroll', updateRibbonPosition);
-window.addEventListener('resize', updateRibbonPosition);
-window.addEventListener('load', updateRibbonPosition);
+});
 
