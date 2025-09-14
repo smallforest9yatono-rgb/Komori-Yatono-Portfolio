@@ -43,13 +43,11 @@ function updateRibbonPosition() {
 
   // フッター手前でガードロープが止まるように
   if (footerTop < windowHeight + ribbonHeight) {
-    // 画面の下部に表示するために位置を調整
-    ribbon.style.position = 'absolute';  // absolute に切り替え
-    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;  // フッター手前で止まる
+    // フッター直前でガードロープの位置を調整
+    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;  // フッターと重ならないように
   } else {
-    // 通常の位置に固定
-    ribbon.style.position = 'fixed';  // fixed に戻す
-    ribbon.style.bottom = '20px';  // 画面下部に常に固定
+    // 固定位置
+    ribbon.style.bottom = '20px';  // 画面下部に固定
   }
 }
 
@@ -57,4 +55,5 @@ function updateRibbonPosition() {
 window.addEventListener('scroll', updateRibbonPosition);
 window.addEventListener('resize', updateRibbonPosition);
 window.addEventListener('load', updateRibbonPosition);
+
 
