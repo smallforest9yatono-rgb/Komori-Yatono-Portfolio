@@ -259,6 +259,14 @@ section {
   display: block;
   pointer-events: none;
 }
+
+.work-image {
+  width: 100%;  /* 親要素の幅に合わせる */
+  height: auto;  /* 高さを自動で調整 */
+  object-fit: contain;  /* 画像を親要素内で縦横比を保って収める */
+  display: block;  /* 画像がブロック要素として表示されるように */
+}
+
 @media (min-width:768px){
     .ribbon-bottom {
         bottom:10px !important;
