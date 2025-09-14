@@ -38,8 +38,8 @@ section {
 /* hero */
 #hero {
   width: 100%;
-  height: 200px;
-  background-image: url("2ndtop_image.png");
+  height: 400px;
+  background-image: url("top_image.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
