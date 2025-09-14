@@ -44,7 +44,7 @@ function updateRibbonPosition() {
   // フッターが画面の下に近づくとガードロープを調整
   if (footerTop < windowHeight + ribbonHeight) {
     // フッター手前でガードロープを動的に調整
-    ribbon.style.position = 'absolute';  // absolute に変更
+    ribbon.style.position = 'fixed';  // absolute に変更
     ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;  // フッターと重ならないように調整
   } else {
     // 通常の位置で画面下に固定
@@ -53,6 +53,10 @@ function updateRibbonPosition() {
   }
 }
 
+// スクロールやリサイズの際に位置を更新
+window.addEventListener('scroll', updateRibbonPosition);
+window.addEventListener('resize', updateRibbonPosition);
+window.addEventListener('load', updateRibbonPosition);
 
 
 
