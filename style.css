@@ -249,7 +249,7 @@ section {
 /* ガードロープ */
 .ribbon-bottom {
   position: fixed;
-  bottom: 20px; /* 常に画面下部に固定 */
+  bottom: 50px; /* 常に画面下部に固定 */
   left: 50%;
   transform: translateX(-50%);
   width: 800px !important;
