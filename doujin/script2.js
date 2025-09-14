@@ -47,11 +47,11 @@ function updateRibbonPosition() {
   // Doujinセクション内でガードロープが動く
   if (doujinTop <= windowHeight - ribbonHeight && doujinTop + doujinHeight > 0) {
     // Doujinセクション内で止まるように位置を調整
-    ribbon.style.position = 'absolute';  // absolute に変更
+    ribbon.style.position = 'fixed';  // absolute に変更
     ribbon.style.bottom = `${windowHeight - (doujinTop + doujinHeight) + 20}px`;  // Doujinセクションの下に固定
   } else if (footerTop < windowHeight + ribbonHeight) {
     // フッター直前で止まる
-    ribbon.style.position = 'absolute';
+    ribbon.style.position = 'fixed';
     ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
   } else {
     // 通常の位置で画面下に固定
