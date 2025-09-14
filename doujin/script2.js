@@ -2,26 +2,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById("modal");
   const hamburger = document.getElementById("hamburger");
   const closeBtn = document.getElementById("close");
-  const ribbon = document.querySelector('.ribbon-bottom');  // ガードロープの要素
+  const ribbon = document.querySelector('.ribbon-bottom');
+  const footer = document.querySelector('footer');
+  const doujinSection = document.querySelector('#doujin');  // 任意
 
-  // ribbonが存在しない場合のエラーを防ぐ
-  if (!ribbon) return;
+  // ribbonやfooterが存在しない場合は処理しない
+  if (!ribbon || !footer) return;
 
   if (hamburger && modal && closeBtn) {
     hamburger.addEventListener("click", () => {
       modal.classList.add("open");
-      ribbon.style.display = 'none'; // モーダルが開いた時にガードロープを非表示
+      ribbon.style.display = 'none';
     });
 
     closeBtn.addEventListener("click", () => {
       modal.classList.remove("open");
-      ribbon.style.display = 'block'; // モーダルが閉じた時にガードロープを再表示
+      ribbon.style.display = 'block';
     });
 
     document.querySelectorAll(".mobile-menu a").forEach(link => {
       link.addEventListener("click", (e) => {
         modal.classList.remove("open");
-        ribbon.style.display = 'block'; // モーダルが閉じた時にガードロープを再表示
+        ribbon.style.display = 'block';
         if (link.href.includes("note.com")) return;
 
         const href = link.getAttribute("href");
@@ -43,61 +45,35 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetEl) targetEl.scrollIntoView({ behavior: "smooth" });
     });
   });
-});
 
-// ガードロープ（リボン）がフッター手前で止まる処理
-const ribbon = document.querySelector('.ribbon-bottom');
-const footer = document.querySelector('footer');
-const doujinSection = document.querySelector('#doujin');  // Doujinセクションが存在しない可能性に注意
+  // ガードロープ位置調整関数
+  function updateRibbonPosition() {
+    const footerTop = footer.getBoundingClientRect().top;
+    const ribbonHeight = ribbon.offsetHeight;
+    const windowHeight = window.innerHeight;
 
-function updateRibbonPosition() {
-  if (!ribbon || !footer) return;  // 要素が無ければ処理しない
+    if (doujinSection) {
+      const doujinTop = doujinSection.getBoundingClientRect().top;
+      const doujinHeight = doujinSection.offsetHeight;
 
-  const footerTop = footer.getBoundingClientRect().top;
-  const ribbonHeight = ribbon.offsetHeight;
-  const windowHeight = window.innerHeight;
+      if (doujinTop <= windowHeight - ribbonHeight && doujinTop + doujinHeight > 0) {
+        ribbon.style.position = 'fixed';
+        ribbon.style.bottom = `${windowHeight - (doujinTop + doujinHeight) + 20}px`;
+        return;
+      }
+    }
 
-  if (doujinSection) {
-    const doujinTop = doujinSection.getBoundingClientRect().top;
-    const doujinHeight = doujinSection.offsetHeight;
-
-    // Doujinセクション内にいるとき
-    if (doujinTop <= windowHeight - ribbonHeight && doujinTop + doujinHeight > 0) {
+    if (footerTop < windowHeight + ribbonHeight) {
       ribbon.style.position = 'fixed';
-      ribbon.style.bottom = `${windowHeight - (doujinTop + doujinHeight) + 20}px`;
-      return;
+      ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
+    } else {
+      ribbon.style.position = 'fixed';
+      ribbon.style.bottom = '20px';
     }
   }
 
-  // フッター直前で止まる処理
-  if (footerTop < windowHeight + ribbonHeight) {
-    ribbon.style.position = 'fixed';
-    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
-  } else {
-    ribbon.style.position = 'fixed';
-    ribbon.style.bottom = '20px';
-  }
-}
-
-window.addEventListener('scroll', updateRibbonPosition);
-window.addEventListener('resize', updateRibbonPosition);
-window.addEventListener('load', updateRibbonPosition);
-
-  /* // Doujinセクション内でガードロープが動く
-  if (doujinTop <= windowHeight - ribbonHeight && doujinTop + doujinHeight > 0) {
-    // Doujinセクション内で止まるように位置を調整
-    ribbon.style.position = 'fixed';  // absolute に変更
-    ribbon.style.bottom = `${windowHeight - (doujinTop + doujinHeight) + 20}px`;  // Doujinセクションの下に固定
-  } else if (footerTop < windowHeight + ribbonHeight) {
-    // フッター直前で止まる
-    ribbon.style.position = 'fixed';
-    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
-  } else {
-    // 通常の位置で画面下に固定
-    ribbon.style.position = 'fixed';  // position: fixed のままで
-    ribbon.style.bottom = '20px';  // 画面下部に固定
-  } */
-
-
-
-
+  // イベント登録
+  window.addEventListener('scroll', updateRibbonPosition);
+  window.addEventListener('resize', updateRibbonPosition);
+  window.addEventListener('load', updateRibbonPosition);
+});
