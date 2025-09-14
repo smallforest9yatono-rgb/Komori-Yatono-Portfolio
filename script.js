@@ -52,33 +52,7 @@ const ribbon = document.querySelector('.ribbon-bottom');
 const footer = document.querySelector('footer');
 const snsSection = document.querySelector('#SNS');  // SNSセクションの要素
 
-function updateRibbonPosition() {
-  const footerTop = footer.getBoundingClientRect().top;  // フッターの位置
-  const ribbonHeight = ribbon.offsetHeight;  // ガードロープの高さ
-  const windowHeight = window.innerHeight;
-  const snsTop = snsSection.getBoundingClientRect().top;  // SNSセクションの位置
-  const snsHeight = snsSection.offsetHeight; // SNSセクションの高さ
 
-  
-  // SNSセクションの下部とフッターの間でガードロープを動かす
-  if (snsTop + snsHeight <= windowHeight && footerTop > ribbonHeight) {
-
-  //セクション内で止まるように位置を調整
-    ribbon.style.position = 'fixed';  // absolute に変更
-    ribbon.style.bottom = `${windowHeight - (snsTop + snsHeight) + 20}px`;  // Doujinセクションの下に固定
-  } 
-  
-  else {
-    // 通常の位置で画面下に固定
-    ribbon.style.position = 'fixed';  // position: fixed のままで
-    ribbon.style.bottom = '50px';  // 画面下部から50pxの位置に固定
-  }
-}
-
-// スクロールやリサイズの際に位置を更新
-window.addEventListener('scroll', updateRibbonPosition);
-window.addEventListener('resize', updateRibbonPosition);
-window.addEventListener('load', updateRibbonPosition);
 
 function updateRibbonPosition() {
   if (!ribbon || !footer) return;
