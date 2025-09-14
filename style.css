@@ -7,7 +7,7 @@ body {
   color: #333;
 }
 
-h1, h2 {
+h1,h2 {
   font-family: 'Gill Sans','M PLUS Rounded 1c',sans-serif;
   font-weight: 700;
   color: #a59aca;
@@ -58,6 +58,7 @@ section {
 .header-logo-menu {
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
   gap: 300px;
   padding: 0px 40px;
@@ -111,6 +112,10 @@ section {
   display: flex;
 }
 
+.modal.open .ribbon-bottom{
+  display: none;
+}
+
 .modal .close {
   align-self: flex-end;
   font-size: 24px;
@@ -141,6 +146,7 @@ section {
   gap: 20px;
   justify-content: center;
   padding: 20px;
+  flex-direction: row;
 }
 
 .gallery-item {
@@ -244,13 +250,14 @@ section {
 }
 
 /* ======= ガードロープ ======= */
-.ribbon-bottom {
+/* PC用 */
+.ribbon-bottom.pc {
   position: fixed;
-  bottom: 0;              /* 常に画面下 */
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
-  max-width: 800px;
+  width: 800px;
+  max-width: 50vw;
   height: auto;
   z-index: 9999;
   pointer-events: none;
@@ -258,6 +265,22 @@ section {
   display: block;
 }
 
+/* スマホ用 */
+.ribbon-bottom.mobile {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  z-index: 9999;
+  pointer-events: none;
+  background: none;
+  display: block;
+}
+
+/* 画像は共通 */
 .ribbon-bottom-img {
   width: 100%;
   height: auto;
@@ -305,20 +328,20 @@ footer {
     justify-content: flex-start !important;
   }
   .hamburger { display: block; }
-
   .header-logo-menu { 
     justify-content: flex-end; 
     padding: 0px 20px;
     gap: 30px !important;
   }
-
   .gallery { flex-direction: column; align-items: center; }
   .gallery-item.size-medium { width: 90%; }
   .gallery-item.size-large { width: 95%; }
 
-  .ribbon-bottom {
-    width: 95%;
-    bottom: 0;
-    display: block ;
-  }
+  /* PCロープは非表示 */
+  .ribbon-bottom.pc { display: none; }
+}
+
+/* PCでスマホロープは非表示 */
+@media (min-width: 751px) {
+  .ribbon-bottom.mobile { display: none; }
 }
