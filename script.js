@@ -80,6 +80,26 @@ window.addEventListener('scroll', updateRibbonPosition);
 window.addEventListener('resize', updateRibbonPosition);
 window.addEventListener('load', updateRibbonPosition);
 
+function updateRibbonPosition() {
+  if (!ribbon || !footer) return;
+
+  const footerRect = footer.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  const overlap = windowHeight - footerRect.top; // フッターが画面に入ってる高さ
+
+  if (overlap > 0) {
+    // フッターに被りそう → bottom をその分だけ上げる
+    ribbon.style.bottom = `${overlap + 20}px`; // 20pxは余白
+  } else {
+    // 普段は固定位置
+    ribbon.style.bottom = "50px"; // 通常時の位置
+  }
+}
+
+window.addEventListener("scroll", updateRibbonPosition);
+window.addEventListener("resize", updateRibbonPosition);
+updateRibbonPosition();
+
 
 
 
