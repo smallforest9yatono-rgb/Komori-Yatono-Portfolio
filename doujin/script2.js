@@ -33,19 +33,28 @@ document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
 });
 
 // ガードロープ（リボン）がフッター手前で止まる処理
-window.addEventListener("scroll", () => {
-  const footer = document.querySelector("footer");
-  const ribbon = document.querySelector(".ribbon-bottom");
-  const footerTop = footer.offsetTop;
-  const scrollY = window.scrollY;
+const ribbon = document.querySelector('.ribbon-bottom');
+const footer = document.querySelector('footer');
+
+function updateRibbonPosition() {
+  const footerTop = footer.getBoundingClientRect().top;  // フッターの位置
+  const ribbonHeight = ribbon.offsetHeight;  // ガードロープの高さ
   const windowHeight = window.innerHeight;
 
-  if (scrollY + windowHeight >= footerTop) {
-    ribbon.style.position = "absolute";
-    ribbon.style.bottom = `${footer.offsetHeight}px`;  // フッター直前で停止
+  // ガードロープがフッターの前に来たら位置を調整
+  if (footerTop < windowHeight + ribbonHeight) {
+    // フッター手前で止まるように
+    ribbon.style.position = 'absolute';
+    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
   } else {
-    ribbon.style.position = "fixed";
-    ribbon.style.bottom = "20px";  // 固定位置に戻す
+    // 通常の固定位置
+    ribbon.style.position = 'fixed';
+    ribbon.style.bottom = '20px';  // 常に画面下部に固定
   }
-});
+}
+
+// スクロールやリサイズ時に位置を調整
+window.addEventListener('scroll', updateRibbonPosition);
+window.addEventListener('resize', updateRibbonPosition);
+window.addEventListener('load', updateRibbonPosition);
 
