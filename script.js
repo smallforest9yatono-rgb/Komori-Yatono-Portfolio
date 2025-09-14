@@ -35,25 +35,24 @@ document.querySelectorAll(".pc-menu a[href^='#']").forEach(link => {
 // ガードロープ（リボン）がフッター手前で止まる処理
 const ribbon = document.querySelector('.ribbon-bottom');
 const footer = document.querySelector('footer');
-const lastSection = document.querySelector('#SNS');  // 最後のセクションをターゲット
+const snsSection = document.querySelector('#SNS');  // SNSセクションの要素
 
 function updateRibbonPosition() {
   const footerTop = footer.getBoundingClientRect().top;  // フッターの位置
   const ribbonHeight = ribbon.offsetHeight;  // ガードロープの高さ
   const windowHeight = window.innerHeight;
-  const lastSection = document.querySelector('.last-section'); // クラス名で指定
-  const lastSectionTop = lastSection.getBoundingClientRect().top;  // 最後のセクションの位置
-  const lastSectionHeight = lastSection.offsetHeight;  // 最後のセクションの高さ
+  const snsTop = snsSection.getBoundingClientRect().top;  // SNSセクションの位置
+  const snsHeight = snsSection.offsetHeight; // SNSセクションの高さ
 
-  // フッターが画面の下に近づくとガードロープを調整
-  if (lastSectionTop + lastSectionHeight <= windowHeight && footerTop > ribbonHeight) {
-    // 最後のセクションとフッターの間でガードロープが動くように
-    ribbon.style.position = 'fixed'; // absolute に変更
-    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`; // フッター手前で調整
+  // SNSセクションの下部とフッターの間でガードロープを動かす
+  if (snsTop + snsHeight <= windowHeight && footerTop > ribbonHeight) {
+    // SNSセクションの下部とフッターの間でガードロープが動く
+    ribbon.style.position = 'absolute';  // absolute に変更
+    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;  // フッター手前で調整
   } else {
     // 通常の位置で画面下に固定
     ribbon.style.position = 'fixed';  // position: fixed のままで
-    ribbon.style.bottom = '20px';  // 画面の下部に固定
+    ribbon.style.bottom = '50px';  // 画面下部から50pxの位置に固定
   }
 }
 
@@ -61,6 +60,7 @@ function updateRibbonPosition() {
 window.addEventListener('scroll', updateRibbonPosition);
 window.addEventListener('resize', updateRibbonPosition);
 window.addEventListener('load', updateRibbonPosition);
+
 
 
 
