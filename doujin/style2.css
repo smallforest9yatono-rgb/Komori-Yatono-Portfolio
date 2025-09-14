@@ -290,6 +290,13 @@ a.button:hover {
   box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* ======= ただのブランク===== */
+#blank {
+  height:200px;
+  background:none;
+  box-shadow: none;
+}
+
 /* ======= フッター ======= */
 footer {
   text-align: center;

@@ -13,6 +13,8 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="style2.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -61,7 +63,9 @@
     <div class="gallery-item size-large">
     <div class="frame-2"><div class="frame-h2">
     <div class="img-wrapper">
-              <img src="book1.jpg" alt="doujin1">
+      <a href="book1.png" data-lightbox="works" data-title="同人表紙1">
+              <img src="book1.jpg" alt="d同人表紙1">
+      </a>
     </div>
     </div>
     </div>
@@ -84,11 +88,16 @@
   <img src="rope2.png" alt="ガードロープ" class="ribbon-bottom-img work-image">
 </section>
 
+<section id="blank"></section>
+
 </main>
 
 <footer>
 <p>&copy; 2025 Toiro Works</p>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
 <script src="script2.js"></script>
 </body>
