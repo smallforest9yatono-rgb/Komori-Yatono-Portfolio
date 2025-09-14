@@ -48,28 +48,40 @@ document.addEventListener('DOMContentLoaded', () => {
 // ガードロープ（リボン）がフッター手前で止まる処理
 const ribbon = document.querySelector('.ribbon-bottom');
 const footer = document.querySelector('footer');
-const doujinSection = document.querySelector('#doujin');  // Doujinセクションの要素
+const doujinSection = document.querySelector('#doujin');  // Doujinセクションが存在しない可能性に注意
 
 function updateRibbonPosition() {
-  const footerTop = footer.getBoundingClientRect().top;  // フッターの位置
-  const ribbonHeight = ribbon.offsetHeight;  // ガードロープの高さ
+  if (!ribbon || !footer) return;  // 要素が無ければ処理しない
+
+  const footerTop = footer.getBoundingClientRect().top;
+  const ribbonHeight = ribbon.offsetHeight;
   const windowHeight = window.innerHeight;
-  const doujinTop = doujinSection.getBoundingClientRect().top; // Doujinセクションの位置
-  const doujinHeight = doujinSection.offsetHeight; // Doujinセクションの高さ
 
-  // SNSセクションの下部とフッターの間でガードロープを動かす
-  if (goodsTop + goodsHeight <= windowHeight && footerTop > ribbonHeight) {
+  if (doujinSection) {
+    const doujinTop = doujinSection.getBoundingClientRect().top;
+    const doujinHeight = doujinSection.offsetHeight;
 
-  //セクション内で止まるように位置を調整
-    ribbon.style.position = 'fixed';  // absolute に変更
-    ribbon.style.bottom = `${windowHeight - (goodsTop + goodsHeight) + 20}px`;  // Doujinセクションの下に固定
-  } 
-  
-  else {
-    // 通常の位置で画面下に固定
-    ribbon.style.position = 'fixed';  // position: fixed のままで
-    ribbon.style.bottom = '50px';  // 画面下部から50pxの位置に固定
+    // Doujinセクション内にいるとき
+    if (doujinTop <= windowHeight - ribbonHeight && doujinTop + doujinHeight > 0) {
+      ribbon.style.position = 'fixed';
+      ribbon.style.bottom = `${windowHeight - (doujinTop + doujinHeight) + 20}px`;
+      return;
+    }
   }
+
+  // フッター直前で止まる処理
+  if (footerTop < windowHeight + ribbonHeight) {
+    ribbon.style.position = 'fixed';
+    ribbon.style.bottom = `${windowHeight - footerTop + 20}px`;
+  } else {
+    ribbon.style.position = 'fixed';
+    ribbon.style.bottom = '20px';
+  }
+}
+
+window.addEventListener('scroll', updateRibbonPosition);
+window.addEventListener('resize', updateRibbonPosition);
+window.addEventListener('load', updateRibbonPosition);
 
   /* // Doujinセクション内でガードロープが動く
   if (doujinTop <= windowHeight - ribbonHeight && doujinTop + doujinHeight > 0) {
@@ -85,12 +97,6 @@ function updateRibbonPosition() {
     ribbon.style.position = 'fixed';  // position: fixed のままで
     ribbon.style.bottom = '20px';  // 画面下部に固定
   } */
-}
-
-// スクロールやリサイズの際に位置を更新
-window.addEventListener('scroll', updateRibbonPosition);
-window.addEventListener('resize', updateRibbonPosition);
-window.addEventListener('load', updateRibbonPosition);
 
 
 
