@@ -31,7 +31,7 @@
 
 <header class="c-header">
   <div class="header-logo-menu">
-    <h1 class="logo-area">Komori Yatono Portfolio</h1>
+      <h1 class="logo-area">Komori Yatono Portfolio</h1>
 
     <!-- PCメニュー -->
     <nav class="pc-menu">
@@ -61,7 +61,9 @@
   </nav>
 </div>
 
-<section id="hero"></section>
+<section id="hero" class="hero">
+  <h2 class="hero-title">Welcome to Yatono's Gallery</h1>
+</section>
 
 <main>
 
@@ -175,6 +177,10 @@
     </div>
 
   </div>
+  <a href="#" class="caption-button" target="_blank" rel="noopener noreferrer">
+    <span class="caption-text">制作依頼について</span>
+    <span class="caption-arrow">＞</span>
+  </a>
 </section>
 
 <section id="works-web">
@@ -188,6 +194,10 @@
       <p>架空のカフェ "Cafe Lumo"</p>
     </div>
     </div>
+    <b><a href="#" class="caption-button" target="_blank" rel="noopener noreferrer">
+      <span class="caption-text">依頼のご案内</span>
+      <span class="caption-arrow">＞</span>
+    </a></b>
   </div>
 </section>
 
@@ -196,19 +206,29 @@
   <p>@Komori_Yatono</p>
   <h2>所属チーム公式X</h2>
   <p>@10iro_bloom</p>
-  <p><a href="https://x.com/10iro_works" class="button" target="_blank" rel="noopener noreferrer">お仕事依頼はこちらから</a></p>
+  <p><a href="https://x.com/10iro_works" class="button" target="_blank" rel="noopener noreferrer">詳しくはこちら</a></p>
 </section>
 
 <section id="about">
   <h2>About</h2>
 
   <div class="profile">
+    <div class="profile-flex">
     <img src="yatono.png" alt="プロフィールアイコン" class="icon">
+      <div class="tools"> 
+        <div class="tool-box">
+          <img src="cspex.png" alt="CLIP STUDIO PAINT EX">
+          <img src="VSCode.png" alt="Visual Studio Code">
+          <img src="Canvafree.png" alt="Canva free plan">
+        </div>
+      </div>
+    </div>
     <div class="left-text">
     <p>名前：小森やと乃</p>
     <p>web制作フリーランスチーム Toiro Bloom所属</p>
     <p>イラスト制作が得意。同チーム内では、主に画像系を担当。</p>
     <p>コーヒーとお酒を嗜むランタンヘッド。愛知出身。</p>
+    <p>ペライチやSTUDIOも対応可能です。</p>
     <p><b>※無断転載及びAI学習等禁止</b></p>
   </div>
   </div>
@@ -232,6 +252,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
 <script src="script.js"></script>
+
+<script>
+  // 対象を全部取得
+  const boxes = document.querySelectorAll('.tool-box');
+
+  // 画面に入ったかどうか監視
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show'); // showクラスを付ける
+      }
+    });
+  });
+
+  // 監視を開始
+  boxes.forEach(box => observer.observe(box));
+</script>
+
 
 </body>
 </html>

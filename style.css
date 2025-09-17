@@ -33,6 +33,7 @@ section {
   text-align: justify;
   max-width:700px;
   margin: 0 auto;
+  gap:1rem;
 }
 
 .profile {
@@ -41,17 +42,57 @@ section {
   gap:1rem;
 }
 
+.profile-flex {
+  flex-direction: column;
+  gap:10px;
+  margin-left:auto;
+}
+
 .icon {
-  width:200px;
-  height:200px;
+  width:250px;
+  height:250px;
   border-radius:50%;
   object-fit: cover;
   margin-block-start:30px;
   margin-left: auto;
 }
 
-.crated-by {
-  display:row
+.tools {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 10px;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+.tool-box {
+  background-color: #fff;
+  padding:0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  opacity:0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.tool-box.show {
+    opacity:1;
+    transform: translateY(0);
+}
+
+.tool-box img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.tool-box img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 
 .text {
@@ -66,6 +107,40 @@ section {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.hero {
+  position: relative;
+  height: 100vh; /* 高さお好みで */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none; /* 背景色だけ（好きな色に） */
+}
+
+.hero-title {
+  font-size: 1.5rem; 
+  font-family: 'Noto Sans JP','M PLUS Rounded 1c','Gill Sans',sans-serif;
+  font-weight: 500;               /* 太字 */
+  color: transparent;             /* 中は透明 */
+  -webkit-text-stroke: 3px #282168;  /* 縁取り色・太さ */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero h2 {
+  opacity:0;
+  transform: translateY(20px);
+  animation:heroFadeUp 1s ease forwards;
+  animation-delay:0.5s;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ======= ヘッダー ======= */
@@ -313,6 +388,39 @@ a.button:hover {
   box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* ボタン本体 */
+.caption-button {
+  display: inline-flex;
+  font-family: 'Noto Sans JP','sans-serif';
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem 1.4rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;           /* 被り防止 */
+  pointer-events: auto; /* 念のため */
+}
+
+/* 矢印：初期状態を明示する */
+.caption-arrow {
+  transform: translateX(0);
+  transition: transform 0.22s ease;
+  will-change: transform;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ホバー時の動き（より具体的なセレクタ） */
+a.caption-button:hover .caption-arrow,
+.caption-button:hover .caption-arrow {
+  transform: translateX(4px);
+}
+
 /* ======= ただのブランク===== */
 #blank {
   height:200px;
@@ -353,6 +461,10 @@ footer {
     flex-direction:column;
     text-align:center;
     justify-content: center;
+  }
+
+  .profile-flex {
+    margin-right:auto !important;
   }
 
   .icon {
